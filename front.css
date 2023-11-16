@@ -1,0 +1,95 @@
+body{
+    font-family: 'Press Start 2P', cursive;
+    background-image: url('out.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container{
+    background-color: transparent;
+    border: 1px solid   white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 1000px;
+}
+
+h1{
+    text-align: center;
+    color: deepskyblue;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.carousel {
+    display: flex;
+    overflow: auto;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed #f9f9f9;
+    width: 100%; /* Set the width to 100% of the parent container */
+}
+
+
+.carousel div {
+    flex: none;
+    width: 300px;
+    padding: 15px;
+    border: 1px transparent;
+    border-radius: 5px;
+    background-image: url(sapce.jpeg);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+pre{
+    background-color: transparent;
+    color: rgb(76, 150, 00);
+    padding: 15px;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 200px;
+    margin-top: 20px;
+    line-height: 1.2;
+    font-size: 0.rem;
+}
+
+.key{
+    color: orange;
+}
+
+.value{
+    color: rgba(0, 135, 115, 225);
+}
+
+@keyframes bounce{
+    0%, 20%, 50%, 80%, 100%{
+        transform: translateY(0);
+    }
+    40%{
+        transform: translateY(-10px);
+    }
+    60%{
+        transform: translateY(-5px);
+    }
+}
+
+.bouncing-letter{
+    display: inline-block;
+    animation-name: bounce;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation: bounce infinite;
+    animation-duration: 0.9s;
+}

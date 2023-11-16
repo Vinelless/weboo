@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helpful Websites to Boost your Knowledge at Web Developement </title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="front.css">
+</head>
+<body>
+  <div class="container">
+     <h1>Websites That Will Help Your WEB Journey</h1>
+     <div class="carousel" id="carousel-content"></div>
+     <pre id="description"></pre>
+  </div>
+  <script>
+    const websites = 
+    [
+      {
+        name: "HTML",
+        URL: "https://html.com/",
+        description: {
+              audience: "Mostly newbies on web development like me and you",
+              focus: "HTML.com helps web developers of all stripes and skill levels craft the best HTML and CSS possible.",
+              features: 'A One-Page Cheat Sheet:  Contains the information you need to know for the most commonly-used HTMLelements and attributes. Whether you are a beginner ready to jump right in or an experienced developer who wants a handy quick reference guide, this is for you.',
+                         
+        }
+      },
+
+      {
+        name: "CSS",
+        URL: "https://css-tricks.com/",
+        description: {
+              audience: "MALAKAS NA SA ML MAY MAGANDA PANG BEBE",
+              focus: "NAMBABABAG NGA LANG MADALAS PA SA MINSAN",
+              features: 'PERO MAGANDA'
+        }
+      },
+
+      {
+        name: "JAVASCRIPT",
+        URL: "https://javascript.info/",
+        description: {
+              audience: "ANG POGI NI ARVIN",
+              focus: "THE BEST MAPAGMAHAL NA MAALAGA PA",
+              features: 'ANG KYUT KYUT PA'
+        }
+      }
+    ];
+    window.addEventListener('DOMContentLoaded', (event) => {
+  const carouselContent = document.getElementById('carousel-content');
+  const descriptionElement = document.getElementById('description');
+  
+  let titleElement = document.querySelector('h1');
+  let titleText = titleElement.textContent;
+  titleElement.innerHTML = '';
+
+  for (let i = 0; i < titleText.length; i++) {
+    let letterSpan = document.createElement('span');
+    letterSpan.textContent = titleText[i];
+    letterSpan.classList.add('bouncing-letter'); // Corrected class name
+
+    let animationDelay = i * 0.4 + 's'; // Adjust the delay as needed
+    letterSpan.style.animationDelay = animationDelay;
+    titleElement.appendChild(letterSpan);
+  }
+  if (!carouselContent) {
+    console.error("Element with ID 'carousel-content' not found");
+    return;
+  }
+
+  websites.forEach(website => {
+    const carouselItem = document.createElement('div');
+    carouselItem.textContent = website.name;
+
+    carouselItem.addEventListener('click', () => {
+      window.location.href = website.URL;
+    });
+
+    carouselItem.addEventListener('mouseover', () => {
+      let formattedDescription = JSON.stringify(website.description, null, 2);
+      formattedDescription = formattedDescription.replace(/"([^*]+)":/g,
+        '<span class="key">"$1:"</span>');
+      descriptionElement.innerHTML = formattedDescription;
+    });
+
+    carouselContent.appendChild(carouselItem);
+  });
+});
+
+  </script>
+</body>
+</html>
